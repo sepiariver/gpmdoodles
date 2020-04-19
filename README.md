@@ -151,7 +151,20 @@ Sibling to ```elements``` is the ```systemSettings``` array. Each array member i
 
 ### gpmdoodles.mysql.schema.xml
 
-In our example project this file is located at: ```core/components/gpmdoodles/model/schema/gpmdoodles.mysql.schema.xml```.
+In our example project this file is located at: ```core/components/gpmdoodles/model/schema/gpmdoodles.mysql.schema.xml```. xPDO schema as a topic is outside the scope of this post, but here are a few resources:
+
+- [MODX Documentation](https://docs.modx.com/current/en/extending-modx/xpdo/custom-models/defining-a-schema/database-and-tables)
+- [MODX Blog Post](https://modx.com/blog/2015/12/16/writing-xpdo-schema/)
+
+More relevant here, is how GPM consumes this file. In the manager under "Extras » Git Package Management", you should see the package that you've added to GPM. Right-click on it to reveal the context-menu.
+
+![GPM package context menu](/assets/u/253/oBpmpQXX-qiueXQXX-EKzSNQXX-yuavagXX.png "GPM package context menu")
+
+When you select the "Build classes from schema" option, GPM (using xPDO) generates xPDO class files based on your schema.
+
+![xPDO class files](/assets/u/253/TKf2LQXX-9B37cwXX-b5W68wXX-XTTmngXX.png "xPDO class files")
+
+Right-click again and select "Update package". Now GPM will create the database tables defined in the schema.
 
 
 

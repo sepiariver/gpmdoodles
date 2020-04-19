@@ -37,7 +37,7 @@
     },
     "database": {
         "tables": [
-            "GPMDoodles"
+            "GPMDoodle"
         ]
     }
 }

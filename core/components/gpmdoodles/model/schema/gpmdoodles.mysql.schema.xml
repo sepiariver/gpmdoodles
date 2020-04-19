@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="gpmdoodles" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="gpmdoodles" version="0.1">
+    <object class="GPMDoodle" table="gpmdoodles_doodles" extends="xPDOObject">
+        <field key="id" dbtype="int" attributes="unsigned" precision="10" phptype="int" null="false" />
+        <field key="title" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+
+        <index alias="PRIMARY" name="PRIMARY" primary="true" unique="true" type="BTREE">
+            <column key="id" length="" collation="A" null="false" />
+        </index>
+    </object>
+</model>
