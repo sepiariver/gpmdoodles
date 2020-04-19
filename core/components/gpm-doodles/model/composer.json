@@ -1,0 +1,14 @@
+{
+    "name": "sepiariver/gpm-doodles",
+    "description": "Demo companion for https://sepiariver.com/modx/build-a-modx-extra-with-git-package-management/",
+    "require": {
+        "guzzle/guzzle": "^3.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "SepiaRiver\\GPMDoodles\\": [
+                "src/"
+            ]
+        }
+    }
+}
