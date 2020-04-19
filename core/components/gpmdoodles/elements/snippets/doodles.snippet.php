@@ -32,10 +32,22 @@ if (!$gpmd || !($gpmd instanceof \SepiaRiver\GPMDoodles)) {
     return '';
 }
 
+// OPTIONS
+$tpl = $modx->getOption('tpl', $scriptProperties, 'gpmd.doodle.tpl');
+$debug = $modx->getOption('debug', $scriptProperties, false);
+
 $doodles = $gpmd->fetchDoodles();
 if (!$doodles) {
     $modx->log(modX::LOG_LEVEL_ERROR, '[gpmd.GetDoodles] could not load any Doodles!');
     return '';
 }
-
-var_dump($doodles);
+if (!empty($tpl) && is_array($doodles['data'])) {
+    $output = [];
+    foreach ($doodles['data'] as $doodle) {
+        $output[] = $gpmd->getChunk($tpl, $doodle);
+    }
+    return implode(PHP_EOL, $output);
+} else {
+    if ($debug) var_dump($doodles);
+    return '';
+}
