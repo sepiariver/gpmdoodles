@@ -1,58 +1,43 @@
 {
-    "name": "Package"
-    ,"lowCaseName": "package"
-    ,"description": "Package description"
-    ,"author": "Author name"
-    ,"version": "1.0.0"
-    ,"package":{
-        "actions": [{
-            "id": 1
-            ,"controller": "index"
-        }]
-        ,"menus": [{
-            "text": "package"
-            ,"action": 1
-        }]
-        ,"elements": {
-            "plugins": [{
-                "name": "PackagePlugin"
-                ,"events": ["OnPageNotFound"]
-            }]
-            ,"snippets": [{
-                "name": "PackageSnippet"
-            }]
-            ,"chunks": [{
-                "name": "PackageChunk"
-            }]
-            ,"templates": [{
-                "name": "PackageTemplate"
-            }]
-            ,"tvs": [{
-                 "caption": "MyTV"
-                 ,"templates": ["PackageTemplate"]
-             }]
-        }
-        ,"resources": [{
-            "pagetitle": "Test Resources"
-            ,"alias": "test-resources"
-            ,"content": "Test content"
-            ,"tvs": [{
-                "name": "test-tv",
-                "value": "Value for test TV"
-            }]
-        }]
-        ,"systemSettings": [{
-            "key": "test_key"
-            ,"value": "it works"
-        }]
-    }
-    ,"database": {
-        "tables": ["PackageItem"]
-    }
-    ,"extensionPackage": {}
-    ,"build": {
-        "resolver": {
-            "after": "resolver.customresolver.php"
-        }
+    "name": "GPMDoodles",
+    "lowCaseName": "gpm-doodles",
+    "description": "Companion to the tutorial at: https://sepiariver.com/modx/build-a-modx-extra-with-git-package-management/",
+    "author": "@sepiariver",
+    "version": "0.0.1-dev1",
+    "package": {
+        "elements": {
+            "plugins": [
+                {
+                    "name": "GPM Doodles",
+                    "file": "doodles.plugin.php",
+                    "events": [
+                        "OnSiteRefresh"
+                    ]
+                }
+            ],
+            "snippets": [
+                {
+                    "name": "gpmd.GetDoodles",
+                    "file": "doodles.snippet.php"
+                }
+            ],
+            "chunks": [
+                {
+                    "name": "gpmd.doodle.tpl",
+                    "file": "doodle.chunk.html"
+                }
+            ]
+        },
+        "systemSettings": [
+            {
+                "key": "api_url",
+                "value": "https://sepiariver.com/assets/gpm-doodles/doodles.json"
+            }
+        ]
+    },
+    "database": {
+        "tables": [
+            "Doodle"
+        ]
     }
 }
