@@ -1,6 +1,6 @@
 {
     "name": "GPMDoodles",
-    "lowCaseName": "gpm-doodles",
+    "lowCaseName": "gpmdoodles",
     "description": "Companion to the tutorial at: https://sepiariver.com/modx/build-a-modx-extra-with-git-package-management/",
     "author": "@sepiariver",
     "version": "0.0.1-dev1",

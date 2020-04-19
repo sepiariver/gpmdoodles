@@ -1,5 +1,5 @@
 {
-    "name": "sepiariver/gpm-doodles",
+    "name": "sepiariver/gpmdoodles",
     "description": "Demo companion for https://sepiariver.com/modx/build-a-modx-extra-with-git-package-management/",
     "require": {
         "guzzle/guzzle": "^3.9"

@@ -24,9 +24,9 @@
 
 // Grab the GPMDoodles class
 $gpmd = null;
-$gpmdPath = $modx->getOption('gpm-doodles.core_path', null, $modx->getOption('core_path') . 'components/gpm-doodles/');
-$gpmdPath .= 'model/gpm-doodles/';
-if (file_exists($gpmdPath . 'gpm-doodles.class.php')) $gpmd = $modx->getService('gpm-doodles', 'GPMDoodles', $gpmdPath);
+$gpmdPath = $modx->getOption('gpmdoodles.core_path', null, $modx->getOption('core_path') . 'components/gpmdoodles/');
+$gpmdPath .= 'model/gpmdoodles/';
+if (file_exists($gpmdPath . 'gpmdoodles.class.php')) $gpmd = $modx->getService('gpmdoodles', 'GPMDoodles', $gpmdPath);
 if (!$gpmd || !($gpmd instanceof \SepiaRiver\GPMDoodles)) {
     $modx->log(modX::LOG_LEVEL_ERROR, '[gpmd.GetDoodles] could not load the required gpmd class!');
     return '';

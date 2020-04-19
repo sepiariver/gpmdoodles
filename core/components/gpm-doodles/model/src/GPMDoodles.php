@@ -8,11 +8,11 @@ use \PDO;
 /**
  * The main MRAdmin service class.
  *
- * @package gpm-doodles
+ * @package gpmdoodles
  */
 class GPMDoodles {
     public $modx = null;
-    public $namespace = 'gpm-doodles';
+    public $namespace = 'gpmdoodles';
     public $options = [];
     public static $version = '0.0.1';
     public $logLevel = modX::LOG_LEVEL_DEBUG;
@@ -20,11 +20,11 @@ class GPMDoodles {
 
     public function __construct(modX &$modx, array $options = []) {
         $this->modx =& $modx;
-        $this->namespace = $this->getOption('namespace', $options, 'gpm-doodles');
+        $this->namespace = $this->getOption('namespace', $options, 'gpmdoodles');
 
-        $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path', null, MODX_CORE_PATH) . 'components/gpm-doodles/');
-        $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path', null, MODX_ASSETS_PATH) . 'components/gpm-doodles/');
-        $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/gpm-doodles/');
+        $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path', null, MODX_CORE_PATH) . 'components/gpmdoodles/');
+        $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path', null, MODX_ASSETS_PATH) . 'components/gpmdoodles/');
+        $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/gpmdoodles/');
 
         /* loads some default paths for easier management */
         $this->options = array_merge(array(
@@ -41,8 +41,8 @@ class GPMDoodles {
 
         // sets up autoload and pkg in modx
         require_once($this->options['vendorPath'] . 'autoload.php');
-        $this->modx->addPackage('gpm-doodles', $this->getOption('modelPath'));
-        $this->modx->lexicon->load('gpm-doodles:default');
+        $this->modx->addPackage('gpmdoodles', $this->getOption('modelPath'));
+        $this->modx->lexicon->load('gpmdoodles:default');
         
         // class variables
         if ($this->getOption('debug')) $this->logLevel = modX::LOG_LEVEL_ERROR;
