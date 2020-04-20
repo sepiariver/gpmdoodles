@@ -1,7 +1,7 @@
 <?php
 /**
  * gpmd.GetDoodles
- * @package gpmd
+ * @package gpmdoodles
  * Gets a collection of Doodles
  * 
  * @author @sepiariver <info@sepiariver.com>
@@ -28,7 +28,7 @@ $gpmdPath = $modx->getOption('gpmdoodles.core_path', null, $modx->getOption('cor
 $gpmdPath .= 'model/gpmdoodles/';
 if (file_exists($gpmdPath . 'gpmdoodles.class.php')) $gpmd = $modx->getService('gpmdoodles', 'GPMDoodles', $gpmdPath);
 if (!$gpmd || !($gpmd instanceof \SepiaRiver\GPMDoodles)) {
-    $modx->log(modX::LOG_LEVEL_ERROR, '[gpmd.GetDoodles] could not load the required gpmd class!');
+    $modx->log(modX::LOG_LEVEL_ERROR, '[gpmd.GetDoodles] could not load the required gpmdoodles class!');
     return '';
 }
 
@@ -36,15 +36,15 @@ if (!$gpmd || !($gpmd instanceof \SepiaRiver\GPMDoodles)) {
 $tpl = $modx->getOption('tpl', $scriptProperties, 'gpmd.doodle.tpl');
 $debug = $modx->getOption('debug', $scriptProperties, false);
 
-$doodles = $gpmd->fetchDoodles();
+$doodles = $modx->getCollection('GPMDoodle');
 if (!$doodles) {
-    $modx->log(modX::LOG_LEVEL_ERROR, '[gpmd.GetDoodles] could not load any Doodles!');
+    $modx->log(modX::LOG_LEVEL_ERROR, '[gpmd.GetDoodles] could not get any Doodles!');
     return '';
 }
-if (!empty($tpl) && is_array($doodles['data'])) {
+if (!empty($tpl)) {
     $output = [];
-    foreach ($doodles['data'] as $doodle) {
-        $output[] = $gpmd->getChunk($tpl, $doodle);
+    foreach ($doodles as $doodle) {
+        $output[] = $gpmd->getChunk($tpl, $doodle->toArray());
     }
     return implode(PHP_EOL, $output);
 } else {
