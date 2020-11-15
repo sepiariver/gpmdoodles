@@ -3,10 +3,9 @@ namespace SepiaRiver;
 use \GuzzleHttp\Client;
 use \modX;
 use \xPDO;
-use \PDO;
 
 /**
- * The main MRAdmin service class.
+ * The main GPMDoodles service class.
  *
  * @package gpmdoodles
  */
