@@ -189,7 +189,7 @@ class GPMDoodles {
         }
         // Not strictly necessary but helpful in common error scenario
         if ($this->modx->getCount('modChunk', ['name' => $tpl]) !== 1) {
-            $this->modx->log(modX::LOG_LEVEL_ERROR, 'MRAdmin: no Chunk with name ' . $tpl);
+            $this->modx->log(modX::LOG_LEVEL_ERROR, $this->namespace . ': no Chunk with name ' . $tpl);
             return '';
         }
         return $this->modx->getChunk($tpl, $phs);
